@@ -4,162 +4,460 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anshu Kumar – Author | Artist | Entrepreneur</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #18122b;
+      --secondary: #ffb300;
+      --accent: #ff3c6f;
+      --bg: #f7f8fa;
+      --card-bg: #fff;
+      --text: #18122b;
+      --muted: #aaa;
+      --gradient: linear-gradient(120deg, #ffb300 0%, #ff3c6f 100%);
+      --gradient-soft: linear-gradient(120deg, #fffbe6 0%, #ffe3ec 100%);
+      --shadow-main: 0 6px 32px #ffb30018, 0 1.5px 12px #18122b09;
+      --shadow-hover: 0 10px 36px #ff3c6f21, 0 1.5px 12px #18122b09;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
-    body {
-      background: #fff;
-      color: #111;
-      line-height: 1.6;
+    html, body {
+      font-family: 'Manrope', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
       scroll-behavior: smooth;
     }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: var(--gradient-soft);
+      z-index: 0;
+      opacity: 0.7;
+      pointer-events: none;
+      filter: blur(16px) saturate(1.05);
+    }
+
     header {
-      background: #111;
+      background: var(--primary);
       color: #fff;
-      padding: 4rem 2rem;
+      padding: 3.2rem 1rem 2.2rem 1rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 8px 40px #ffb3001c;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: -120px; transform: translateX(-50%);
+      width: 170vw; height: 290px;
+      background: var(--gradient);
+      opacity: 0.17;
+      z-index: 0;
+      border-radius: 50%;
+      filter: blur(4px);
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 2.9rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      z-index: 1;
+      position: relative;
+      text-shadow: 0 2px 14px #0002, 0 0 0 #fff;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     header p {
-      font-size: 1.4rem;
-      margin-top: 0.5rem;
+      font-size: 1.3rem;
+      margin-top: 1.1rem;
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      z-index: 1;
+      position: relative;
+      text-shadow: 0 2px 10px #ffb30025;
+    }
+
+    .hero-quote {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2.1rem auto 1.5rem auto;
+      max-width: 900px;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: #fffaf3;
+      border-radius: 20px;
+      padding: 1.15rem 2.2rem;
+      box-shadow: 0 2px 24px #ffb3001e;
+      letter-spacing: 0.1px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      border-left: 7px solid var(--accent);
+      font-family: 'Manrope', Arial, sans-serif;
+      line-height: 1.32;
+    }
+    .hero-quote q {
+      quotes: "“" "”";
+      font-style: italic;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .hero-quote {
+        font-size: 1.08rem;
+        max-width: 98vw;
+        padding: 1.1rem 0.7rem;
+        border-left: 5px solid var(--accent);
+      }
+      .hero-quote q {
+        white-space: normal;
+      }
+    }
+
+    main {
+      max-width: 860px;
+      margin: 2.3rem auto 0 auto;
+      padding: 0 1.3rem;
+      position: relative;
+      z-index: 1;
     }
     section {
-      padding: 3rem 1.5rem;
-      max-width: 1000px;
-      margin: auto;
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow-main);
+      margin-bottom: 1.25rem;
+      padding: 1.6rem 1.2rem 1.25rem 1.25rem;
+      transition: box-shadow 0.22s, border-left 0.22s, transform 0.22s;
+      border-left: 6px solid var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+    section:hover {
+      box-shadow: var(--shadow-hover);
+      border-left: 6px solid var(--secondary);
+      transform: translateY(-2px) scale(1.012);
     }
     h2 {
-      color: #000;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.12px;
+      text-shadow: 0 2px 10px #ffb30018;
     }
     .button {
       display: inline-block;
-      background: #000;
+      background: var(--secondary);
       color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
+      padding: 0.62rem 1.27rem;
+      border-radius: 8px;
       text-decoration: none;
-      margin-top: 1rem;
-      transition: background 0.3s;
+      margin-top: 0.7rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 10px #ffb30018;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.12s;
+      border: none;
+      letter-spacing: 0.1px;
     }
     .button:hover {
-      background: #333;
+      background: var(--accent);
+      box-shadow: 0 3px 18px #ff3c6f1b;
+      color: #fff;
+      transform: translateY(-2px) scale(1.06);
     }
-    footer {
-      background: #f1f1f1;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #555;
+    ul, .ventures-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
-    ul li {
-      margin-bottom: 0.5rem;
+    .ventures-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2.1rem;
+      margin-top: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+    .venture {
+      background: linear-gradient(90deg,#fffbe6 0%,#ffe3ec 100%);
+      border-radius: 14px;
+      padding: 1.1rem 1.4rem 0.85rem 1.4rem;
+      min-width: 160px;
+      flex: 1 0 200px;
+      box-shadow: 0 1.5px 8px #ffb30013;
+      text-align: left;
+      position: relative;
+      border-left: 4px solid var(--accent);
+      transition: border-color 0.16s, box-shadow 0.18s;
+    }
+    .venture:hover {
+      border-left: 4px solid var(--secondary);
+      box-shadow: 0 2px 12px #ff3c6f17;
+    }
+    .venture-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.07rem;
+      margin-bottom: 0.2rem;
+    }
+    .venture-desc {
+      color: #523b5c;
+      font-size: 0.99rem;
+      margin-bottom: 0.2rem;
+    }
+    .venture-link {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.96rem;
+      text-decoration: underline dotted;
+      transition: color 0.17s;
+    }
+    .venture-link:hover { color: var(--secondary);}
+    .social-links {
+      margin-top: 0.7rem;
     }
     .social-links a {
       display: inline-block;
-      margin: 0 0.5rem;
-      color: #000;
+      margin: 0 0.25rem 0.45rem 0.25rem;
+      color: var(--primary);
+      background: var(--secondary);
+      padding: 0.33rem 1.1rem;
+      border-radius: 18px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s, transform 0.13s;
+      box-shadow: 0 1px 7px #ffb30015;
     }
-    iframe {
-      margin-top: 1rem;
-      border-radius: 12px;
+    .social-links a:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.07) translateY(-1.5px);
+    }
+    iframe, .youtube-embed, .gallery .insta-embed {
+      border-radius: 13px;
+      box-shadow: 0 2px 12px #18122b10;
+      background: #fff;
+    }
+    .youtube-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+    .youtube-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-    }
-    img.profile {
-      width: 200px;
-      border-radius: 50%;
-      display: block;
-      margin: 2rem auto;
+      height: 100%;
+      border: 0;
+      border-radius: 13px;
     }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       gap: 1rem;
-      margin-top: 1rem;
+      margin-top: 0.7rem;
+      margin-bottom: 0.5rem;
     }
-    .gallery img {
+    .gallery .insta-embed {
       width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.3rem 0;
+      min-height: 340px;
+    }
+    footer {
+      background: var(--primary);
+      text-align: center;
+      padding: 1.15rem 0.5rem;
+      font-size: 1.08rem;
+      color: #fff;
+      margin-top: 2.2rem;
+      letter-spacing: 0.15px;
+      position: relative;
+      z-index: 2;
+      border-radius: 24px 24px 0 0;
+      box-shadow: 0 -3px 18px #ffb3001c;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: underline dotted;
+      transition: color 0.17s;
+    }
+    a:hover {
+      color: var(--secondary);
+    }
+    @media (max-width: 900px) {
+      .hero-quote {
+        font-size: 1.08rem;
+        max-width: 98vw;
+        padding: 1.1rem 0.7rem;
+        border-left: 5px solid var(--accent);
+      }
+      .hero-quote q {
+        white-space: normal;
+      }
+    }
+    @media (max-width: 600px) {
+      main {
+        padding: 0 0.1rem;
+      }
+      section {
+        padding: 0.85rem 0.38rem 0.80rem 0.5rem;
+      }
+      h2 {
+        font-size: 1.05rem;
+      }
+      header {
+        padding: 2rem 0.4rem 1.4rem 0.4rem;
+        border-radius: 0 0 20px 20px;
+      }
+      footer {
+        border-radius: 12px 12px 0 0;
+      }
+      .ventures-list {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Anshu Kumar</h1>
-    <p>Author | Artist | Entrepreneur</p>
+    <p>Author &nbsp;|&nbsp; Artist &nbsp;|&nbsp; Entrepreneur</p>
   </header>
+  <div class="hero-quote">
+    <span>
+      <q>Purpose is the rhythm of a meaningful life. Let’s find yours.</q>
+    </span>
+  </div>
+  <main>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m <b>Anshu Kumar</b> — a purpose-driven entrepreneur, author of <strong>"Find Your WHY"</strong>, and hip-hop artist known as <em>Anshu The Rapsoul</em>.<br>
+        Currently, I lead Logistics & Customer Delight at <b>Comet</b>, a fast-rising e-commerce startup.<br>
+        <br>
+        <span style="color:var(--accent); font-weight:600; font-size:1.1em;">I believe in living with intention, creating impact, and inspiring others to chase their own rhythm.</span>
+      </p>
+    </section>
 
-  <img class="profile" src="https://yt3.googleusercontent.com/ytc/AIdro_lKKhHnN77NvDaZMdXcBkM9JMLkUvZZqBRwPLRZDQ=s900-c-k-c0x00ffffff-no-rj" alt="Anshu The Rapsoul">
+    <section>
+      <h2>My Book – Find Your WHY</h2>
+      <p>
+        <strong>Find Your WHY</strong> is my practical guide to unlocking purpose and clarity. It’s a journey to discover who you are, what drives you, and how to move in the world with deep intention—no matter your starting point.
+      </p>
+      <a class="button" href="https://www.amazon.com/dp/B0FDLCHTKF" target="_blank">Buy on Amazon</a>
+    </section>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I’m Anshu Kumar, a purpose-driven entrepreneur, author of <strong>"Find Your WHY"</strong>, and a hip-hop artist known as <em>Anshu The Rapsoul</em>. I currently lead Logistics & Customer Delight at <strong>Comet</strong> and previously scaled categories at <strong>Urban Company</strong> from ground level to Senior Manager.</p>
-  </section>
+    <section>
+      <h2>Music – Anshu The Rapsoul</h2>
+      <p>
+        My music blends <b>soul, purpose, and real stories</b>. Each track is crafted to inspire, empower, and elevate.<br>
+        <span style="color:var(--secondary);">Tune in and feel the vibe:</span>
+      </p>
+      <iframe style="border-radius:13px" src="https://open.spotify.com/embed/artist/5OG9ZaEqFexOh6Pj6ImEGE?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+      <div class="youtube-embed">
+        <iframe src="https://www.youtube.com/embed/8Kq1dYIdHKY" title="YouTube Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div style="text-align:center; margin-top:0.1rem;">
+        <a href="https://www.youtube.com/c/AnshuTheRapsoul" target="_blank" class="button" style="background:var(--accent);color:#fff;">Visit my YouTube channel</a>
+      </div>
+    </section>
 
-  <section>
-    <h2>My Book – Find Your WHY</h2>
-    <p>Discover a life of purpose and clarity. This book is a guide to understanding who you are, why you do what you do, and how to live with deep intention. Written in a simple, relatable tone for everyone searching for meaning.</p>
-    <a class="button" href="https://www.amazon.com/dp/B0FDLCHTKF" target="_blank">Buy on Amazon</a>
-  </section>
+    <section>
+      <h2>Awni Enterprises</h2>
+      <p>
+        <b>Awni Enterprises</b> is my creative lab—a collection of ventures at the intersection of culture, media, and commerce. Every project is a spark to light up Bharat’s dreams.
+      </p>
+      <div class="ventures-list">
+        <div class="venture">
+          <div class="venture-title">Awni TV</div>
+          <div class="venture-desc">Infotainment for today’s curious mind—explore, learn, and grow.</div>
+          <a class="venture-link" href="https://www.youtube.com/@AwniTV" target="_blank">Watch on YouTube →</a>
+        </div>
+        <div class="venture">
+          <div class="venture-title">Awni Prints</div>
+          <div class="venture-desc">Quality commercial printing built for creators and businesses alike.</div>
+          <a class="venture-link" href="https://g.co/kgs/J7Sqwrp" target="_blank">See our work →</a>
+        </div>
+        <div class="venture">
+          <div class="venture-title">Awni Threads</div>
+          <div class="venture-desc">Apparel inspired by the soul of Bharat. Wear your roots, wear your story.</div>
+          <a class="venture-link" href="https://awni-threads.blinkstore.in/" target="_blank">Shop now →</a>
+        </div>
+        <div class="venture">
+          <div class="venture-title">Awni Records</div>
+          <div class="venture-desc">Homegrown label for independent voices and fresh sounds.</div>
+          <a class="venture-link" href="https://www.youtube.com/@AwniRecords" target="_blank">Listen on YouTube →</a>
+        </div>
+      </div>
+      <p>
+        <em>Turning bold ideas into brands that move hearts and markets.</em>
+      </p>
+    </section>
 
-  <section>
-    <h2>Music – Anshu The Rapsoul</h2>
-    <p>My music is a fusion of soul, purpose, and real-life expression. I believe in creating tracks that inspire people to reflect and rise. Listen below:</p>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/5OG9ZaEqFexOh6Pj6ImEGE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed?listType=user_uploads&list=UC6Y8zUZ_Kx9XoK5G8eIdz8A" title="YouTube Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </section>
+    <section>
+      <h2>Photo Gallery</h2>
+      <p>
+        Moments from my journey.<br>
+        For more, visit <a href="https://www.instagram.com/anshutherapsoul/" target="_blank">@anshutherapsoul</a> on Instagram.
+      </p>
+      <div class="gallery">
+        <div class="insta-embed">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C4V1kGJP-Su/" data-instgrm-version="14" style="background:#FFF; border-radius:12px; margin: 0 auto; max-width:540px; min-width:326px; width:100%;"></blockquote>
+        </div>
+      </div>
+      <script async src="https://www.instagram.com/embed.js"></script>
+    </section>
 
-  <section>
-    <h2>Awni Enterprises</h2>
-    <p>I’m the founder of Awni Enterprises, a collective of purpose-driven ventures:</p>
-    <ul>
-      <li><strong><a href="https://www.youtube.com/@AwniTV" target="_blank">Awni TV</a></strong> – Infotainment channel</li>
-      <li><strong><a href="https://g.co/kgs/J7Sqwrp" target="_blank">Awni Prints</a></strong> – Commercial printing business</li>
-      <li><strong><a href="https://awni-threads.blinkstore.in/" target="_blank">Awni Threads</a></strong> – Apparel inspired by Bharat</li>
-      <li><strong><a href="https://www.youtube.com/@AwniRecords" target="_blank">Awni Records</a></strong> – Independent music label</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Social Impact – Rudransh Foundation</h2>
+      <p>
+        I’m an active member of <span style="color:var(--secondary); font-weight:600;">Rudransh Foundation</span>, a movement for empowering communities through education, health, and youth development. <br>
+        We believe in giving back and building a brighter tomorrow for all.
+      </p>
+      <p>Follow our work on <a href="https://www.instagram.com/rudranshfoundation/" target="_blank">Instagram</a>.</p>
+    </section>
 
-  <section>
-    <h2>Photo Gallery</h2>
-    <p>Moments from my journey. For more, visit <a href="https://www.instagram.com/anshutherapsoul/" target="_blank">@anshutherapsoul</a> on Instagram.</p>
-    <div class="gallery">
-      <img src="https://raw.githubusercontent.com/AnshuTheRapsoul/public-assets/main/img1.jpg" alt="Gallery Image 1">
-      <img src="https://raw.githubusercontent.com/AnshuTheRapsoul/public-assets/main/img2.jpg" alt="Gallery Image 2">
-      <img src="https://raw.githubusercontent.com/AnshuTheRapsoul/public-assets/main/img3.jpg" alt="Gallery Image 3">
-    </div>
-  </section>
-
-  <section>
-    <h2>Social Impact – Rudransh Foundation</h2>
-    <p>I’m an active member of <strong>Rudransh Foundation</strong>, a social service initiative committed to empowering local communities through education, health, and youth development programs. We believe real change begins at the grassroots.</p>
-    <p>Follow our work on <a href="https://www.instagram.com/rudranshfoundation/" target="_blank">Instagram</a>.</p>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:anshutherapsoul@gmail.com">anshutherapsoul@gmail.com</a></p>
-    <div class="social-links">
-      <p>Follow Me:</p>
-      <a href="https://open.spotify.com/artist/5OG9ZaEqFexOh6Pj6ImEGE" target="_blank">Spotify</a>
-      <a href="https://www.instagram.com/anshutherapsoul/" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/in/anshu-kumar-100543186/" target="_blank">LinkedIn</a>
-      <a href="https://www.youtube.com/c/AnshuTheRapsoul" target="_blank">YouTube</a>
-    </div>
-  </section>
-
+    <section>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:anshutherapsoul@gmail.com">anshutherapsoul@gmail.com</a></p>
+      <div class="social-links">
+        <a href="https://open.spotify.com/artist/5OG9ZaEqFexOh6Pj6ImEGE" target="_blank">Spotify</a>
+        <a href="https://www.instagram.com/anshutherapsoul/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/anshu-kumar-100543186/" target="_blank">LinkedIn</a>
+        <a href="https://www.youtube.com/c/AnshuTheRapsoul" target="_blank">YouTube</a>
+      </div>
+    </section>
+  </main>
   <footer>
     &copy; 2025 Anshu Kumar. All rights reserved.
   </footer>
